@@ -6,6 +6,8 @@ public class ArrCharOps {
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
         char[] arr3 = {'s','l','e','a','r','l','d'};
+        char[] arr4 = {};
+        char[] arr5 = {};
 
 
         // System.out.println(charAt(arr1,1));  
@@ -24,7 +26,7 @@ public class ArrCharOps {
         // System.out.println(compareTo("Zoo", "zoo"));
         // System.out.println(hashCode(arr1));
         //System.out.println(hashCode(arr2));
-        System.out.println(equals(arr1, arr3));
+        System.out.println(equals(arr4, arr4));
 
     }
 
@@ -68,6 +70,8 @@ public class ArrCharOps {
                 }
             }
         }
+        if (arr1.length == 0 && arr2.length == 0) areEquals = true;
+
         return areEquals;
     }
 
