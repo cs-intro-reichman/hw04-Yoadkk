@@ -5,7 +5,7 @@ public class ArrCharOps {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-        char[] arr3 = {'c','l','e','a','r','l','y'};
+        char[] arr3 = {'c','l','e','a','r','l','d'};
         System.out.println("Test " + arr1[2]);
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
@@ -16,15 +16,16 @@ public class ArrCharOps {
         System.out.println(lastIndexOf(arr1, 'l'));
         System.out.println(concat(arr1, arr2));
         System.out.println(subArray(arr2, 2, 9));
-        //System.out.println(compareTo("abcd", "abcd"));
-        //System.out.println(compareTo("abc", "abcd"));
-        //System.out.println(compareTo("abw", "abcd"));
-        //System.out.println(compareTo("Abcd", "a"));
-        //System.out.println(compareTo("apple", "banana"));
-        //System.out.println(compareTo("apple", "applepie"));
-        //System.out.println(compareTo("Zoo", "zoo"));
+        System.out.println(compareTo("abcd", "abcd"));
+        System.out.println(compareTo("abc", "abcd"));
+        System.out.println(compareTo("abw", "abcd"));
+        System.out.println(compareTo("Abcd", "a"));
+        System.out.println(compareTo("apple", "banana"));
+        System.out.println(compareTo("apple", "applepie"));
+        System.out.println(compareTo("Zoo", "zoo"));
         System.out.println(hashCode(arr1));
-        //System.out.println(hashCode(arr2));
+        System.out.println(hashCode(arr2));
+        System.out.println(equals(arr1, arr3));
 
     }
 
@@ -59,6 +60,10 @@ public class ArrCharOps {
             for (int i = 0; i < arr1.length; i++) {
                 if (charAt(arr1, i) == charAt(arr2, i)){
                     areEquals = true;
+                }
+                else{
+                    areEquals = false;
+                    break;
                 }
                 
             }
@@ -175,9 +180,9 @@ public class ArrCharOps {
 
         
 
-        for (long i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
 
-            hashC += Math.pow(7, ((arr.length-1-i)));
+            hashC += arr[i]*Math.pow(7, ((arr.length-1-i)));
             
             
         }
@@ -211,7 +216,24 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        // Replace the following statement with your code
-        return 0;
+        int lexComp = 0;
+
+
+        for (int i = 0; i < Math.min(str1.length(), str2.length()) ; i++){
+            if (str1.charAt(i) == str2.charAt(i)){
+
+            }
+            else if (str1.charAt(i) > str2.charAt(i)){
+                lexComp = -1;
+                break;
+            }
+            else if (str1.charAt(i) < str2.charAt(i)){
+                lexComp = -2;
+                break;
+            }
+
+        }
+
+        return lexComp;
     }
 }
