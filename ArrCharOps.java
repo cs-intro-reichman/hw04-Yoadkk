@@ -11,22 +11,22 @@ public class ArrCharOps {
 
 
         // System.out.println(charAt(arr1,1));  
-        System.out.println(equals(arr1, arr2));    
+        //System.out.println(equals(arr1, arr2));    
         // System.out.println(indexOf(arr1,'r'));  
         // System.out.println(indexOf(arr1,'l',3)); 
         // System.out.println(lastIndexOf(arr1, 'l'));
         // System.out.println(concat(arr1, arr2));
         // System.out.println(subArray(arr2, 2, 9));
-        // System.out.println(compareTo("abcd", "abcd"));
-        // System.out.println(compareTo("abc", "abcd"));
-        // System.out.println(compareTo("abw", "abcd"));
-        // System.out.println(compareTo("Abcd", "a"));
-        // System.out.println(compareTo("apple", "banana"));
-        // System.out.println(compareTo("apple", "applepie"));
-        // System.out.println(compareTo("Zoo", "zoo"));
+         System.out.println(compareTo("abcd", "abcd"));
+         System.out.println(compareTo("abc", "abcd"));
+         System.out.println(compareTo("abw", "abcd"));
+         System.out.println(compareTo("Abcd", "a"));
+         System.out.println(compareTo("apple", "banana"));
+         System.out.println(compareTo("apple", "applepie"));
+         System.out.println(compareTo("Zoo", "zoo"));
         // System.out.println(hashCode(arr1));
         //System.out.println(hashCode(arr2));
-        System.out.println(equals(arr4, arr4));
+        //System.out.println(equals(arr4, arr4));
 
     }
 
@@ -221,24 +221,33 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         int lexComp = 0;
-        String noCap1 = str1.toLowerCase();
-        String noCap2 = str2.toLowerCase();
 
-
-        for (int i = 0; i < Math.min(noCap1.length(), noCap2.length()) ; i++){
-            if (noCap1.charAt(i) == noCap2.charAt(i)){
+        for (int i = 0; i < Math.min(str1.length(), str2.length()) ; i++){
+            if (str1.charAt(i) == str2.charAt(i)){
 
             }
-            else if (noCap1.charAt(i) > noCap2.charAt(i)){
+            else if (str1.charAt(i) > str2.charAt(i)){
                 lexComp = -1;
                 break;
             }
-            else if (noCap1.charAt(i) < noCap2.charAt(i)){
+            else if (str1.charAt(i) < str2.charAt(i)){
                 lexComp = -2;
                 break;
             }
+            
+            
 
         }
+
+        if (lexComp == 0){
+            if (str1.length()>str2.length()) lexComp = -2;
+            if (str1.length()<str2.length()) lexComp = -1;
+
+        }
+
+    
+
+
 
         return lexComp;
     }
