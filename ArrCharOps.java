@@ -5,26 +5,25 @@ public class ArrCharOps {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-        char[] arr3 = {'c','l','e','a','r','l','d'};
-        System.out.println("Test " + arr1[2]);
-        System.out.println(str);  // Prints the string
-        println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,1));  
-        System.out.println(equals(arr1, arr3));    
-        System.out.println(indexOf(arr1,'r'));  
-        System.out.println(indexOf(arr1,'l',3)); 
-        System.out.println(lastIndexOf(arr1, 'l'));
-        System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
-        System.out.println(compareTo("abcd", "abcd"));
-        System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
-        System.out.println(compareTo("apple", "banana"));
-        System.out.println(compareTo("apple", "applepie"));
-        System.out.println(compareTo("Zoo", "zoo"));
-        System.out.println(hashCode(arr1));
-        System.out.println(hashCode(arr2));
+        char[] arr3 = {'s','l','e','a','r','l','d'};
+
+
+        // System.out.println(charAt(arr1,1));  
+        System.out.println(equals(arr1, arr2));    
+        // System.out.println(indexOf(arr1,'r'));  
+        // System.out.println(indexOf(arr1,'l',3)); 
+        // System.out.println(lastIndexOf(arr1, 'l'));
+        // System.out.println(concat(arr1, arr2));
+        // System.out.println(subArray(arr2, 2, 9));
+        // System.out.println(compareTo("abcd", "abcd"));
+        // System.out.println(compareTo("abc", "abcd"));
+        // System.out.println(compareTo("abw", "abcd"));
+        // System.out.println(compareTo("Abcd", "a"));
+        // System.out.println(compareTo("apple", "banana"));
+        // System.out.println(compareTo("apple", "applepie"));
+        // System.out.println(compareTo("Zoo", "zoo"));
+        // System.out.println(hashCode(arr1));
+        //System.out.println(hashCode(arr2));
         System.out.println(equals(arr1, arr3));
 
     }
@@ -55,17 +54,18 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         boolean areEquals = false;
-        
-        if (arr1.length == arr2.length){
-            for (int i = 0; i < arr1.length; i++) {
-                if (charAt(arr1, i) == charAt(arr2, i)){
-                    areEquals = true;
-                }
-                else{
-                    areEquals = false;
-                    break;
-                }
+        if (arr1.length != 0 && arr2.length != 0){
+            if (arr1.length == arr2.length){
+                for (int i = 0; i < arr1.length; i++) {
+                    if (charAt(arr1, i) == charAt(arr2, i)){
+                        areEquals = true;
+                    }
+                    else{
+                        areEquals = false;
+                        break;
+                    }
                 
+                }
             }
         }
         return areEquals;
@@ -217,17 +217,19 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         int lexComp = 0;
+        String noCap1 = str1.toLowerCase();
+        String noCap2 = str2.toLowerCase();
 
 
-        for (int i = 0; i < Math.min(str1.length(), str2.length()) ; i++){
-            if (str1.charAt(i) == str2.charAt(i)){
+        for (int i = 0; i < Math.min(noCap1.length(), noCap2.length()) ; i++){
+            if (noCap1.charAt(i) == noCap2.charAt(i)){
 
             }
-            else if (str1.charAt(i) > str2.charAt(i)){
+            else if (noCap1.charAt(i) > noCap2.charAt(i)){
                 lexComp = -1;
                 break;
             }
-            else if (str1.charAt(i) < str2.charAt(i)){
+            else if (noCap1.charAt(i) < noCap2.charAt(i)){
                 lexComp = -2;
                 break;
             }
