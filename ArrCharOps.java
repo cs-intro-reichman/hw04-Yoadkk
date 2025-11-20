@@ -19,11 +19,11 @@ public class ArrCharOps {
         // System.out.println(subArray(arr2, 2, 9));
          System.out.println(compareTo("abcd", "abcd"));
          System.out.println(compareTo("abc", "abcd"));
-         System.out.println(compareTo("abw", "abcd"));
-         System.out.println(compareTo("Abcd", "a"));
-         System.out.println(compareTo("apple", "banana"));
-         System.out.println(compareTo("apple", "applepie"));
-         System.out.println(compareTo("Zoo", "zoo"));
+        //  System.out.println(compareTo("abw", "abcd"));
+        //  System.out.println(compareTo("Abcd", "a"));
+        //  System.out.println(compareTo("apple", "banana"));
+        //  System.out.println(compareTo("apple", "applepie"));
+        //  System.out.println(compareTo("Zoo", "zoo"));
         // System.out.println(hashCode(arr1));
         //System.out.println(hashCode(arr2));
         //System.out.println(equals(arr4, arr4));
@@ -227,11 +227,11 @@ public class ArrCharOps {
 
             }
             else if (str1.charAt(i) > str2.charAt(i)){
-                lexComp = -1;
+                lexComp = 1;
                 break;
             }
             else if (str1.charAt(i) < str2.charAt(i)){
-                lexComp = -2;
+                lexComp = -1;
                 break;
             }
             
@@ -240,11 +240,14 @@ public class ArrCharOps {
         }
 
         if (lexComp == 0){
-            if (str1.length()>str2.length()) lexComp = -2;
+            if (str1.length()>str2.length()) lexComp = 1;
             if (str1.length()<str2.length()) lexComp = -1;
 
         }
 
+        if (str1 == "" || str2 == "" ){
+            lexComp = -2;
+        }
     
 
 
