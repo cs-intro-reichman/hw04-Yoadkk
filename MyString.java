@@ -74,7 +74,6 @@ public class MyString {
         String myString = "";
 
 
-        System.out.println(str2);
         //unhappy happy 
         
 
@@ -111,7 +110,6 @@ public class MyString {
                     }
 
                 }
-                System.out.println(myString);
             }
         }
         return doesContain;
