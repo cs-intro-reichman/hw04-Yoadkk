@@ -1,3 +1,7 @@
+
+import java.awt.SystemColor;
+import java.lang.ref.Cleaner;
+
 public class KeywordsDetector {
     public static void main(String[] args) {
         String[] sentences = {
@@ -16,11 +20,61 @@ public class KeywordsDetector {
         // Some keywords that typically signal bullshit contents in business presentations 
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
+
+
     }
 
-    // Iterates through all the sentences.
-    // If a sentence contains one or more of the kewords, prints it.
-    public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+    public static boolean contains(String str1, String str2){
+
+        String myString = "";
+        String finalString = "";
+        boolean isCont = false;
+
+
+        for (int i = 0; i < str1.length(); i++) {
+            myString += str1.charAt(i);
+            if (str1.charAt(i) == 32){
+                for (int j = 0; j < str2.length(); j++) {
+                    if ((myString.charAt(j) == str2.charAt(j) && myString.length()-1 == str2.length())){
+                        finalString += myString;
+                        isCont = true;
+                        break;
+                        
+                    }
+                    else break;
+
+                }
+                myString = "";
+            }
+
+        }
+
+
+
+
+
+
+        return isCont;
     }
-}
+
+    public static void detectAndPrint(String[] sentences, String[] keywords) {
+        for (int i = 0; i < sentences.length; i++) {
+
+
+            for (int j = 0; j < keywords.length; j++) {
+
+            if (contains(sentences[i].toLowerCase(), keywords[j].toLowerCase()) == true){
+                System.out.println(keywords[j]);
+
+            }
+                
+                
+            }
+            
+        }
+    }
+
+
+
+
+ }
